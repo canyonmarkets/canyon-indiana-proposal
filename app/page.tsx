@@ -11,6 +11,7 @@ import BootsScene from '@/app/components/scenes/BootsScene';
 import FootprintScene from '@/app/components/scenes/FootprintScene';
 import StackScene from '@/app/components/scenes/StackScene';
 import SupplyScene from '@/app/components/scenes/SupplyScene';
+import SuggestScene from '@/app/components/scenes/SuggestScene';
 import SummaryScene from '@/app/components/scenes/SummaryScene';
 import OperatorsScene from '@/app/components/scenes/OperatorsScene';
 import EngageScene from '@/app/components/scenes/EngageScene';
@@ -33,6 +34,7 @@ const SCENES: SceneDef[] = [
   { id: 'footprint', label: 'Site', element: <FootprintScene />, dwell: 13000 },
   { id: 'stack', label: 'Stack', element: <StackScene />, dwell: 13000 },
   { id: 'supply', label: 'Supply', element: <SupplyScene />, dwell: 8500 },
+  { id: 'suggest', label: 'Worker Voice', element: <SuggestScene />, dwell: 11000 },
   { id: 'summary', label: 'Summary', element: <SummaryScene />, dwell: 9500 },
   { id: 'operators', label: 'Operators', element: <OperatorsScene />, dwell: 11000 },
   { id: 'engage', label: 'Engage', element: <EngageScene /> },
