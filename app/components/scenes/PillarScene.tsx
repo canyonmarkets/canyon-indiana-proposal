@@ -8,6 +8,21 @@ import type { PillarSpec } from '@/app/data/pillars';
 
 const ROADMAP_ICONS = { calendar: Calendar, promo: Megaphone } as const;
 
+/** Renders the headline with an optional substring highlighted in ember. */
+function HeadlineText({ text, emphasis }: { text: string; emphasis?: string }) {
+  if (emphasis && text.includes(emphasis)) {
+    const [before, after] = text.split(emphasis);
+    return (
+      <>
+        {before}
+        <span className="text-ember-500">{emphasis}</span>
+        {after}
+      </>
+    );
+  }
+  return <>{text}</>;
+}
+
 export default function PillarScene({ spec }: { spec: PillarSpec }) {
   return (
     <div className="scene">
@@ -23,7 +38,7 @@ export default function PillarScene({ spec }: { spec: PillarSpec }) {
           </motion.span>
           <div>
             <motion.h2 variants={item} className="display text-4xl font-bold leading-[1.02] text-steel-50 sm:text-5xl">
-              {spec.headline}
+              <HeadlineText text={spec.headline} emphasis={spec.emphasis} />
             </motion.h2>
             <motion.p variants={item} className="mt-4 max-w-2xl text-lg leading-relaxed text-steel-300">
               {spec.subhead}

@@ -23,7 +23,7 @@ export default function PantryScene() {
               <Tag tag={spec.tag} />
             </motion.div>
             <motion.h2 variants={item} className="display mt-3 text-3xl font-bold leading-[1.05] text-steel-50 sm:text-4xl">
-              {spec.headline}
+              Your <span className="text-ember-500">Clayco</span> &amp; <span className="text-ember-500">Microsoft</span> staff grab and go. You see every item.
             </motion.h2>
             <motion.p variants={item} className="mt-4 max-w-xl text-base leading-relaxed text-steel-300">
               {spec.subhead}
@@ -41,8 +41,8 @@ export default function PantryScene() {
             <motion.div variants={item} className="mt-6 flex items-center gap-3 rounded-lg border border-ember-500/50 bg-ember-500/10 px-4 py-3.5">
               <span className="livedot pulse flex-none" />
               <p className="text-sm leading-relaxed text-steel-100">
-                <span className="font-bold text-ember-300">This is the real app</span>, running at a Clayco site today —{' '}
-                <span className="font-bold text-steel-50">tap the screen and walk through it yourself.</span>
+                <span className="font-bold text-ember-300">This is the real app</span> — custom-built for your Indiana site.{' '}
+                <span className="font-bold text-steel-50">Tap the screen and walk through it yourself.</span>
               </p>
               <motion.span
                 aria-hidden

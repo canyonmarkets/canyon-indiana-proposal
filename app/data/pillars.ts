@@ -6,6 +6,7 @@ export type PillarSpec = {
   name: string;
   eyebrow: string;
   headline: string;
+  emphasis?: string; // portion of the headline rendered in ember
   subhead: string;
   points: { title: string; body: string }[];
   burden_removed: string;
@@ -44,7 +45,7 @@ export const PILLAR_SPECS: PillarSpec[] = [
     ],
     burden_removed:
       'Right now, someone on your team is the snack runner — the warehouse-club trips, the expense receipts, the who-took-what arguments, the half-empty break rooms by 2pm. At this scale, with admin trailers strung across the whole campus, doing that by hand would be a full-time nightmare. Canyon makes it vanish: we stock every admin trailer, log every item to the room it left, and hand you one clean monthly invoice — nobody on your side lifts a finger.',
-    proof: 'Canyon already built and runs this exact app — Clayco-branded, live at a Clayco site today. Execs can tap through it right inside this proposal.',
+    proof: 'Canyon custom-built this exact app — Clayco-branded — for the Indiana site. Execs can tap through it right inside this proposal.',
   },
   {
     id: 'amenities',
@@ -52,6 +53,7 @@ export const PILLAR_SPECS: PillarSpec[] = [
     name: 'Amenities Tent Markets + Gym',
     eyebrow: 'Pillar 02 · The Amenity Tent',
     headline: 'The amenity tent, fueled end to end.',
+    emphasis: 'fueled end to end',
     subhead:
       'Inside your 36,000 sq ft amenity tent, two automated micro-markets anchor each end of the cross-traffic, and a single AI cooler runs the gym’s high-value fuel on its own.',
     tag: 'proposed',
@@ -70,6 +72,7 @@ export const PILLAR_SPECS: PillarSpec[] = [
     name: 'Field Break-Tent Markets',
     eyebrow: 'Pillar 03 · Volume Tier',
     headline: 'Feed 2,000+ crews in a 30-minute break.',
+    emphasis: '2,000+ crews',
     subhead:
       'High-capacity micro-markets in the break tents put hot fuel and cold drinks in your crews’ hands fast, with no food-truck line and no walk off-site.',
     tag: 'proposed',
@@ -88,6 +91,7 @@ export const PILLAR_SPECS: PillarSpec[] = [
     name: 'Food Truck Management',
     eyebrow: 'Pillar 04 · Food Trucks',
     headline: 'The food truck lane, fully run.',
+    emphasis: 'fully run',
     subhead:
       'Your blueprint already draws the lane and the covered area, so Canyon sources, schedules, and runs the trucks while your team never touches it.',
     tag: 'proposed',
