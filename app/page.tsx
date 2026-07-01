@@ -5,6 +5,7 @@ import StakesScene from '@/app/components/scenes/StakesScene';
 import OpportunityScene from '@/app/components/scenes/OpportunityScene';
 import MarketGalleryScene from '@/app/components/scenes/MarketGalleryScene';
 import GymCoolerScene from '@/app/components/scenes/GymCoolerScene';
+import FairPriceScene from '@/app/components/scenes/FairPriceScene';
 import PillarScene from '@/app/components/scenes/PillarScene';
 import PantryScene from '@/app/components/scenes/PantryScene';
 import BootsScene from '@/app/components/scenes/BootsScene';
@@ -29,6 +30,7 @@ const SCENES: SceneDef[] = [
   { id: 'amenities', label: 'Amenities', element: <PillarScene spec={amenities} />, dwell: 10000 },
   { id: 'gymcooler', label: 'Gym Cooler', element: <GymCoolerScene />, dwell: 11000 },
   { id: 'field', label: 'Field', element: <PillarScene spec={field} />, dwell: 10000 },
+  { id: 'fairprice', label: 'Fair Price', element: <FairPriceScene />, dwell: 10000 },
   { id: 'foodtrucks', label: 'Food Trucks', element: <PillarScene spec={foodtrucks} />, dwell: 10000 },
   { id: 'boots', label: 'Boots', element: <BootsScene />, dwell: 7500 },
   { id: 'footprint', label: 'Site', element: <FootprintScene />, dwell: 13000 },
