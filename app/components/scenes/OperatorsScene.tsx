@@ -86,7 +86,9 @@ export default function OperatorsScene() {
           </p>
           <p className="kicker mt-2 text-steel-400">
             <a href="https://canyon-advisors.com" target="_blank" rel="noopener noreferrer" className="ulink transition-colors hover:text-ember-300">Canyon Advisors</a>
-            {' · '}Canyon Cleaners{' · '}
+            {' · '}
+            <a href="https://canyon-cleaners.netlify.app" target="_blank" rel="noopener noreferrer" className="ulink transition-colors hover:text-ember-300">Canyon Cleaners</a>
+            {' · '}
             <a href="https://canyon-apts.com" target="_blank" rel="noopener noreferrer" className="ulink transition-colors hover:text-ember-300">Canyon Apartments</a>
             {' · '}
             <a href="https://canyon-markets.com" target="_blank" rel="noopener noreferrer" className="ulink transition-colors hover:text-ember-300">Canyon Markets</a>
