@@ -38,8 +38,18 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
   const [playing, setPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const wheelTs = useRef(0);
   const last = scenes.length - 1;
+
+  // Below the lg breakpoint we drop the fixed card-deck for a scrollable page.
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 1023px)');
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
   const advance = useCallback((d: number) => {
     setIndex((i) => {
@@ -49,10 +59,7 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
     });
   }, [last]);
 
-  // Auto-advance (self-driving) — raw moves, do NOT pause.
   const autoNext = useCallback(() => advance(1), [advance]);
-
-  // Manual moves — taking control pauses the self-driving.
   const pause = useCallback(() => setPlaying(false), []);
   const next = useCallback(() => { setPlaying(false); advance(1); }, [advance]);
   const prev = useCallback(() => { setPlaying(false); advance(-1); }, [advance]);
@@ -64,9 +71,9 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
     });
   }, [last]);
 
-  // Self-driving timer
+  // Self-driving timer (desktop deck only)
   useEffect(() => {
-    if (!playing) return;
+    if (isMobile || !playing) return;
     const scene = scenes[index];
     if (scene.hold || index >= last) {
       if (index >= last) setPlaying(false);
@@ -74,10 +81,11 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
     }
     const t = window.setTimeout(autoNext, scene.dwell ?? DEFAULT_DWELL);
     return () => clearTimeout(t);
-  }, [playing, index, scenes, last, autoNext]);
+  }, [playing, index, scenes, last, autoNext, isMobile]);
 
-  // Keyboard
+  // Keyboard (desktop deck only)
   useEffect(() => {
+    if (isMobile) return;
     const onKey = (e: KeyboardEvent) => {
       if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); next(); }
       else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); prev(); }
@@ -87,10 +95,11 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [next, prev, goto, last]);
+  }, [next, prev, goto, last, isMobile]);
 
-  // Wheel
+  // Wheel (desktop deck only)
   useEffect(() => {
+    if (isMobile) return;
     const onWheel = (e: WheelEvent) => {
       const now = e.timeStamp;
       if (now - wheelTs.current < 700) return;
@@ -101,18 +110,79 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
     };
     window.addEventListener('wheel', onWheel, { passive: true });
     return () => window.removeEventListener('wheel', onWheel);
-  }, [next, prev]);
+  }, [next, prev, isMobile]);
 
   const ctx = useMemo<DeckCtx>(
     () => ({ index, count: scenes.length, next, prev, goto, playing, pause }),
     [index, scenes.length, next, prev, goto, playing, pause],
   );
 
+  // On the scrollable mobile layout, "next" nudges the page down a screen.
+  const mobileCtx = useMemo<DeckCtx>(
+    () => ({
+      index: 0,
+      count: scenes.length,
+      next: () => window.scrollBy({ top: Math.round(window.innerHeight * 0.92), behavior: 'smooth' }),
+      prev: () => window.scrollBy({ top: -Math.round(window.innerHeight * 0.92), behavior: 'smooth' }),
+      goto: () => {},
+      playing: false,
+      pause: () => {},
+    }),
+    [scenes.length],
+  );
+
+  const ambient = (
+    <div className="deck-ambient" aria-hidden>
+      <div className="gridlines absolute inset-0 opacity-30" />
+      <div className="blob glow-soft -left-32 top-12 h-[26rem] w-[26rem] bg-ember-700/70" />
+    </div>
+  );
+
+  const topBar = (
+    <div className="fixed inset-x-0 top-0 z-40">
+      <div className="telemetry-bar">
+        <div className="mx-auto flex h-9 max-w-[100rem] items-center justify-between px-5">
+          <div className="flex items-center gap-2.5">
+            <Image src="/img/canyon-logo.png" alt="Canyon Markets" width={30} height={24} className="h-[22px] w-auto" priority />
+            <span className="display text-base font-bold text-steel-100">{PROPOSAL.wordmark}</span>
+            <span className="kicker hidden text-steel-500 sm:inline">// {PROPOSAL.lockup}</span>
+          </div>
+          <div className="hidden items-center gap-5 md:flex">
+            {TELEMETRY.map((t) => (
+              <span key={t.label} className="flex items-center gap-2">
+                <span className="livedot" />
+                <span className="kicker text-steel-400">{t.label}</span>
+              </span>
+            ))}
+          </div>
+          <span className="kicker text-live-500 md:hidden">SYSTEMS LIVE</span>
+        </div>
+      </div>
+    </div>
+  );
+
+  // ---- Mobile / tablet: scrollable stacked page ----
+  if (isMobile) {
+    return (
+      <Ctx.Provider value={mobileCtx}>
+        {ambient}
+        {topBar}
+        <div className="relative z-10">
+          {scenes.map((s) => (
+            <motion.div key={s.id} className="deck-section" variants={sceneVariants} initial="center" animate="center">
+              {s.element}
+            </motion.div>
+          ))}
+        </div>
+      </Ctx.Provider>
+    );
+  }
+
   const autoRunning = playing && index < last && !scenes[index].hold;
 
+  // ---- Desktop: cinematic self-driving deck ----
   return (
     <Ctx.Provider value={ctx}>
-      {/* Self-driving progress bar */}
       {autoRunning && (
         <motion.div
           key={index}
@@ -123,33 +193,8 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
         />
       )}
 
-      {/* Ambient layer — one calm glow + a faint static grid */}
-      <div className="deck-ambient" aria-hidden>
-        <div className="gridlines absolute inset-0 opacity-30" />
-        <div className="blob glow-soft -left-32 top-12 h-[26rem] w-[26rem] bg-ember-700/70" />
-      </div>
-
-      {/* Top chrome */}
-      <div className="fixed inset-x-0 top-0 z-40">
-        <div className="telemetry-bar">
-          <div className="mx-auto flex h-9 max-w-[100rem] items-center justify-between px-5">
-            <div className="flex items-center gap-2.5">
-              <Image src="/img/canyon-logo.png" alt="Canyon Markets" width={30} height={24} className="h-[22px] w-auto" priority />
-              <span className="display text-base font-bold text-steel-100">{PROPOSAL.wordmark}</span>
-              <span className="kicker hidden text-steel-500 sm:inline">// {PROPOSAL.lockup}</span>
-            </div>
-            <div className="hidden items-center gap-5 md:flex">
-              {TELEMETRY.map((t) => (
-                <span key={t.label} className="flex items-center gap-2">
-                  <span className="livedot" />
-                  <span className="kicker text-steel-400">{t.label}</span>
-                </span>
-              ))}
-            </div>
-            <span className="kicker text-live-500 md:hidden">SYSTEMS LIVE</span>
-          </div>
-        </div>
-      </div>
+      {ambient}
+      {topBar}
 
       {/* Stage */}
       <div className="relative z-10 h-screen w-screen overflow-hidden">

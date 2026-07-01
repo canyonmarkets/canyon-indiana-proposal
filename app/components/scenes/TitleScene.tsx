@@ -12,7 +12,7 @@ export default function TitleScene() {
           Large Project Workforce Solutions
         </motion.p>
 
-        <h1 className="display mt-6 text-6xl font-bold leading-[0.92] text-steel-50 sm:text-8xl">
+        <h1 className="display mt-6 text-4xl font-bold leading-[0.96] text-steel-50 sm:text-6xl lg:text-8xl">
           <motion.span variants={word} className="block">Zero cost.</motion.span>
           <motion.span variants={word} className="block">Full service.</motion.span>
           <motion.span variants={word} className="block text-ember-500">Zero burden.</motion.span>
