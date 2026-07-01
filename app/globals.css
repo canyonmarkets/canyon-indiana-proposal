@@ -126,6 +126,22 @@ section[id], #top { scroll-margin-top: 104px; }
 .tag-live { background: rgba(52,211,153,0.1); color: #34D399; border: 1px solid rgba(52,211,153,0.3); }
 .tag-proposed { background: rgba(116,144,168,0.08); color: #A0B4CA; border: 1px solid rgba(81,106,132,0.35); }
 
+/* Fair-price: live competitor-price bars (a scanning shimmer = tracked in real time) */
+.livebar { position: relative; overflow: hidden; }
+.livebar::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 18%, rgba(244,247,251,0.20) 50%, transparent 82%);
+  transform: translateX(-100%);
+  animation: livebar-sweep 2.8s ease-in-out infinite;
+}
+@keyframes livebar-sweep { 0% { transform: translateX(-100%); } 55%, 100% { transform: translateX(100%); } }
+.pricedot { height: 7px; width: 7px; border-radius: 9999px; background: #F59E0B; flex: none; animation: pricepulse 2s ease-out infinite; }
+@keyframes pricepulse {
+  0% { box-shadow: 0 0 0 0 rgba(245,158,11,0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(245,158,11,0); }
+  100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+}
+
 /* ---- Scroll reveal (JS adds .pre, then .in — fails OPEN) ---- */
 .pre { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
 .pre.in { opacity: 1; transform: none; }
@@ -155,7 +171,7 @@ section[id], #top { scroll-margin-top: 104px; }
 .hotspot:hover .pin, .hotspot.open .pin { transform: scale(1.12); }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee, .floaty, .blink, .livedot.pulse, .hotspot .pin::after, .text-ember-sheen { animation: none !important; }
+  .marquee, .floaty, .blink, .livedot.pulse, .hotspot .pin::after, .text-ember-sheen, .livebar::after, .pricedot { animation: none !important; }
   .hero-line { animation: none; width: 128px; }
   .pre { opacity: 1; transform: none; }
 }

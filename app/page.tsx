@@ -21,7 +21,7 @@ import { PILLAR_SPECS } from '@/app/data/pillars';
 const [, amenities, field, foodtrucks] = PILLAR_SPECS;
 
 const SCENES: SceneDef[] = [
-  { id: 'init', label: 'Init', element: <BootScene />, dwell: 5200 },
+  { id: 'init', label: 'Init', element: <BootScene />, dwell: 9000 },
   { id: 'brief', label: 'Brief', element: <TitleScene />, dwell: 6500 },
   { id: 'stakes', label: 'Stakes', element: <StakesScene />, dwell: 8500 },
   { id: 'opportunity', label: 'Opportunity', element: <OpportunityScene />, dwell: 11000 },

@@ -51,7 +51,7 @@ export const PILLAR_SPECS: PillarSpec[] = [
     num: '02',
     name: 'Amenities Tent Markets + Gym',
     eyebrow: 'Pillar 02 · The Pavilion',
-    headline: 'Two markets, twin thoroughfares, one smart gym cooler',
+    headline: 'The pavilion, fueled end to end.',
     subhead:
       'Inside your 36,000 sq ft amenities pavilion, two automated micro-markets anchor each end of the cross-traffic, and a single AI cooler runs the gym’s high-value fuel on its own.',
     tag: 'proposed',

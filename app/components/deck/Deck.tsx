@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { sceneVariants } from '@/app/components/deck/anim';
 import { PROPOSAL, TELEMETRY } from '@/app/lib/site';
 
@@ -71,17 +71,13 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
     });
   }, [last]);
 
-  // Self-driving timer (desktop deck only)
+  // Autoplay is killed for content — only the boot scene (index 0) auto-reveals
+  // into the deck as a cinematic cold-open; after that it's fully user-driven.
   useEffect(() => {
-    if (isMobile || !playing) return;
-    const scene = scenes[index];
-    if (scene.hold || index >= last) {
-      if (index >= last) setPlaying(false);
-      return;
-    }
-    const t = window.setTimeout(autoNext, scene.dwell ?? DEFAULT_DWELL);
+    if (isMobile || !playing || index !== 0) return;
+    const t = window.setTimeout(autoNext, scenes[0].dwell ?? DEFAULT_DWELL);
     return () => clearTimeout(t);
-  }, [playing, index, scenes, last, autoNext, isMobile]);
+  }, [playing, index, scenes, autoNext, isMobile]);
 
   // Keyboard (desktop deck only)
   useEffect(() => {
@@ -91,7 +87,6 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
       else if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); prev(); }
       else if (e.key === 'Home') goto(0);
       else if (e.key === 'End') goto(last);
-      else if (e.key.toLowerCase() === 'p') setPlaying((p) => !p);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -178,7 +173,7 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
     );
   }
 
-  const autoRunning = playing && index < last && !scenes[index].hold;
+  const autoRunning = playing && index === 0;
 
   // ---- Desktop: cinematic self-driving deck ----
   return (
@@ -234,14 +229,6 @@ export default function Deck({ scenes }: { scenes: SceneDef[] }) {
             <span className="kicker ml-3 hidden text-steel-600 sm:inline">{scenes[index].label}</span>
           </div>
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setPlaying((p) => !p)}
-              className="btn-ghost mr-1 flex h-10 items-center gap-2 rounded-full px-4"
-              aria-label={playing ? 'Pause' : 'Play'}
-            >
-              {playing ? <Pause size={15} /> : <Play size={15} />}
-              <span className="kicker text-[0.6rem]">{playing ? 'Auto' : 'Play'}</span>
-            </button>
             <button onClick={prev} disabled={index === 0} className="btn-ghost flex h-10 w-10 items-center justify-center rounded-full disabled:opacity-30" aria-label="Previous">
               <ChevronLeft size={18} />
             </button>
