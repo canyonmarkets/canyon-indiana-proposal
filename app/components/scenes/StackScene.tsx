@@ -26,8 +26,10 @@ export default function StackScene() {
               We don&apos;t promise systems. <span className="text-ember-500">We run them.</span>
             </h2>
           </div>
-          <p className="text-sm text-steel-300">
-            Tap a system to watch it <span className="font-semibold text-ember-300">run live</span>.
+          <p className="max-w-md text-sm leading-relaxed text-steel-300">
+            Tap any system to watch it <span className="font-semibold text-ember-300">run live</span>. These are pieces of our
+            own stack — and if your site needs a tool that doesn&apos;t exist yet, we build it in-house, hand-in-hand with{' '}
+            <span className="font-semibold text-ember-300">Claude Code</span>. Fitting, for an AI data center.
           </p>
         </motion.div>
 

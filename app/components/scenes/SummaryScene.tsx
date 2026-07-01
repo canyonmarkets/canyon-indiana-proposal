@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { item } from '@/app/components/deck/anim';
 
-const ITEMS = ['Pantry Service', 'Amenities Markets + Gym', 'Field Break-Tent Markets', 'Food Truck Management'];
+const ITEMS = ['Pantry Service', 'Amenity Tent + Gym', 'Field Break-Tent Markets', 'Food Truck Management'];
 
 function CheckRow({ label, i }: { label: string; i: number }) {
   const d = 0.5 + i * 0.8;

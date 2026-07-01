@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { item } from '@/app/components/deck/anim';
 import { useDeck } from '@/app/components/deck/Deck';
 import { Tag } from '@/app/components/ui';
+import { ArrowRight, MousePointerClick } from 'lucide-react';
 import PantryReplica from '@/app/components/pantry/PantryReplica';
 import { PILLAR_SPECS } from '@/app/data/pillars';
 
@@ -37,13 +38,32 @@ export default function PantryScene() {
               ))}
             </motion.div>
 
-            <motion.p variants={item} className="mt-6 rounded-lg border-l-2 border-ember-500 bg-charcoal-800/60 px-4 py-3 text-sm leading-relaxed text-steel-200">
-              <span className="font-semibold text-ember-300">This is the real app —</span> running at a Clayco site today. Tap the
-              screen and walk through it yourself.
-            </motion.p>
+            <motion.div variants={item} className="mt-6 flex items-center gap-3 rounded-lg border border-ember-500/50 bg-ember-500/10 px-4 py-3.5">
+              <span className="livedot pulse flex-none" />
+              <p className="text-sm leading-relaxed text-steel-100">
+                <span className="font-bold text-ember-300">This is the real app</span>, running at a Clayco site today —{' '}
+                <span className="font-bold text-steel-50">tap the screen and walk through it yourself.</span>
+              </p>
+              <motion.span
+                aria-hidden
+                className="hidden flex-none text-ember-400 lg:block"
+                animate={{ x: [0, 8, 0] }}
+                transition={{ duration: 1.1, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <ArrowRight size={26} />
+              </motion.span>
+            </motion.div>
           </div>
 
-          <motion.div variants={item}>
+          <motion.div variants={item} className="relative">
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -top-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-ember-500 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-[0_8px_24px_-6px_rgba(201,75,12,0.85)]"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <MousePointerClick size={15} /> Tap to try — it&apos;s live
+            </motion.div>
             <PantryReplica onInteract={pause} />
           </motion.div>
         </div>

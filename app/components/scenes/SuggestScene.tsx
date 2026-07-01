@@ -54,10 +54,17 @@ function QrBlock() {
           className="absolute inset-0 h-[150px] w-[150px] rounded-lg border border-charcoal-600"
         />
       </div>
-      <span className="flex items-center gap-1.5 rounded-full border border-live-500/40 bg-live-500/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-live-500">
+      <motion.span
+        animate={{
+          scale: [1, 1.06, 1],
+          boxShadow: ['0 0 0 0 rgba(52,211,153,0)', '0 0 22px 5px rgba(52,211,153,0.45)', '0 0 0 0 rgba(52,211,153,0)'],
+        }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        className="flex items-center gap-2 rounded-full border border-live-500/60 bg-live-500/15 px-4 py-2 text-sm font-bold uppercase tracking-wide text-live-500"
+      >
         <span className="livedot pulse" /> Live · scan it now
-      </span>
-      <span className="text-[11px] text-steel-400">Opens the real menu on your phone</span>
+      </motion.span>
+      <span className="text-sm font-bold text-steel-200">Opens the real menu on your phone</span>
     </div>
   );
 }

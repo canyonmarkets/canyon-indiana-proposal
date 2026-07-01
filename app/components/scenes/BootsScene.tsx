@@ -21,7 +21,7 @@ export default function BootsScene() {
 
         <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-charcoal-600/30 sm:grid-cols-2">
           <motion.div variants={item} className="bg-charcoal-900 p-8">
-            <p className="kicker text-steel-500">Remote dashboard operator</p>
+            <p className="display text-xl font-bold uppercase tracking-wide text-steel-300 sm:text-2xl">Remote dashboard operator</p>
             <ul className="mt-5 space-y-3 text-steel-400">
               <li>Sees a number change; dispatches a truck eventually</li>
               <li>Empty shelves discovered after the fact</li>
@@ -29,7 +29,7 @@ export default function BootsScene() {
             </ul>
           </motion.div>
           <motion.div variants={item} className="reticle bg-charcoal-800 p-8">
-            <p className="kicker text-ember-400">On-site owner-operator</p>
+            <p className="display text-xl font-bold uppercase tracking-wide text-ember-400 sm:text-2xl">On-site owner-operator</p>
             <ul className="mt-5 space-y-3 text-steel-200">
               <li>Walks the floor; fixes it before anyone notices</li>
               <li>Restocked ahead of the shift, not after the complaint</li>

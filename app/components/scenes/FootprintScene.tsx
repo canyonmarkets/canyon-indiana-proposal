@@ -32,8 +32,10 @@ export default function FootprintScene() {
               Your blueprint. <span className="text-ember-500">Our markets.</span>
             </h2>
           </div>
-          <p className="text-sm text-steel-300">
-            Pick a location, then <span className="font-semibold text-ember-300">hover a pulsing pin</span> to preview the market.
+          <p className="max-w-md text-sm leading-relaxed text-steel-300">
+            These placements follow your current site plan — and nothing&apos;s locked. We&apos;ll sit down with your design team
+            in planning to put every market exactly where the foot traffic wants it.{' '}
+            <span className="font-semibold text-ember-300">Pick a location and hover a pin</span> to preview.
           </p>
         </motion.div>
 

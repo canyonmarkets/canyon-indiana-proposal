@@ -21,7 +21,7 @@ export const OVERVIEW = {
     'Canyon runs the entire on-site food and amenity layer across your campus — from the sponsored admin pantry to the food-truck lane — so your team never stocks, staffs, or chases any of it.',
   pillars: [
     { id: 'pantry', name: 'Admin Pantry Service', oneLiner: 'A sponsored pantry across all admin trailers where your 200+ leadership and admin staff grab and go at no charge — every item logged to the room it left.' },
-    { id: 'amenities', name: 'Amenities Tent Markets + Gym', oneLiner: 'Two automated micro-markets anchor opposite ends of your 36,000 sq ft pavilion, with one AI cooler running the gym’s premium fuel on its own.' },
+    { id: 'amenities', name: 'Amenities Tent Markets + Gym', oneLiner: 'Two automated micro-markets anchor opposite ends of your 36,000 sq ft amenity tent, with one AI cooler running the gym’s premium fuel on its own.' },
     { id: 'field', name: 'Field Break-Tent Markets', oneLiner: 'High-capacity 250+ SKU micro-markets put hot fuel and cold drinks in 2,000+ crews’ hands inside a 30-minute break — no truck line, no walk off-site.' },
     { id: 'foodtrucks', name: 'Food Truck Management', oneLiner: 'Canyon sources, schedules, contracts, and vets every truck in the lane your blueprint already drew — at no additional cost and zero hours on your calendar.' },
   ],
@@ -33,7 +33,7 @@ export const PILLAR_SPECS: PillarSpec[] = [
     num: '01',
     name: 'Admin Pantry Service',
     eyebrow: 'Pillar 01 · Sponsored Pantry',
-    headline: 'Your crews grab and go. You see every item.',
+    headline: 'Your Clayco & Microsoft staff grab and go. You see every item.',
     subhead:
       'A sponsored pantry across all admin trailers where your 200+ leadership and admin staff take what they want at no charge, every item logged the instant it leaves the shelf.',
     tag: 'live',
@@ -50,19 +50,19 @@ export const PILLAR_SPECS: PillarSpec[] = [
     id: 'amenities',
     num: '02',
     name: 'Amenities Tent Markets + Gym',
-    eyebrow: 'Pillar 02 · The Pavilion',
-    headline: 'The pavilion, fueled end to end.',
+    eyebrow: 'Pillar 02 · The Amenity Tent',
+    headline: 'The amenity tent, fueled end to end.',
     subhead:
-      'Inside your 36,000 sq ft amenities pavilion, two automated micro-markets anchor each end of the cross-traffic, and a single AI cooler runs the gym’s high-value fuel on its own.',
+      'Inside your 36,000 sq ft amenity tent, two automated micro-markets anchor each end of the cross-traffic, and a single AI cooler runs the gym’s high-value fuel on its own.',
     tag: 'proposed',
     points: [
       { title: 'Both ends, no bottleneck', body: 'A paid micro-market at each end of the tent splits the rush across two thoroughfares. Crews tap and go in about three seconds, cashless, no line, no cashier, no break burned waiting.' },
       { title: 'Gym fuel, run by AI', body: 'One AI-managed smart cooler in the fitness center carries the higher-value supplemental line, protein, recovery, premium hydration, clean energy, with shrink protection built into the items most likely to walk.' },
-      { title: 'Self-checkout we already run', body: 'These kiosks aren’t a concept. Canyon’s custom self-checkout software is live today on job sites across Arizona. We drop a proven system into your pavilion, not a prototype.' },
+      { title: 'Self-checkout we already run', body: 'These kiosks aren’t a concept. Canyon’s custom self-checkout software is live today on job sites across Arizona. We drop a proven system into your amenity tent, not a prototype.' },
     ],
     burden_removed:
-      'Thousands of crews hit the same pavilion in the same 30-minute window. Two markets at opposite ends absorb that surge so nobody loses half their break in a line, and the gym’s premium stock manages and protects itself instead of bleeding out as shrink. None of it lands on your team to staff, stock, or watch.',
-    proof: 'Canyon’s custom self-checkout app runs live today on job sites across Arizona. The gym AI smart cooler is the proposed deployment for this pavilion.',
+      'Thousands of crews hit the same amenity tent in the same 30-minute window. Two markets at opposite ends absorb that surge so nobody loses half their break in a line, and the gym’s premium stock manages and protects itself instead of bleeding out as shrink. None of it lands on your team to staff, stock, or watch.',
+    proof: 'Canyon’s custom self-checkout app runs live today on job sites across Arizona. The gym AI smart cooler is the proposed deployment for this amenity tent.',
   },
   {
     id: 'field',

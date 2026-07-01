@@ -22,7 +22,7 @@ export default function GymCoolerScene() {
     <div className="scene">
       <div className="scene-inner max-w-6xl">
         <motion.div variants={item} className="flex items-center justify-between gap-4">
-          <p className="eyebrow text-ember-500">Amenity Pavilion · The Gym</p>
+          <p className="eyebrow text-ember-500">Amenity Tent · The Gym</p>
           <Tag tag="proposed" />
         </motion.div>
         <motion.h2 variants={item} className="display mt-3 text-3xl font-bold leading-tight text-steel-50 sm:text-4xl">
