@@ -3,6 +3,7 @@ import BootScene from '@/app/components/scenes/BootScene';
 import TitleScene from '@/app/components/scenes/TitleScene';
 import StakesScene from '@/app/components/scenes/StakesScene';
 import OpportunityScene from '@/app/components/scenes/OpportunityScene';
+import MarketGalleryScene from '@/app/components/scenes/MarketGalleryScene';
 import PillarScene from '@/app/components/scenes/PillarScene';
 import PantryScene from '@/app/components/scenes/PantryScene';
 import BootsScene from '@/app/components/scenes/BootsScene';
@@ -21,6 +22,7 @@ const SCENES: SceneDef[] = [
   { id: 'brief', label: 'Brief', element: <TitleScene />, dwell: 6500 },
   { id: 'stakes', label: 'Stakes', element: <StakesScene />, dwell: 8500 },
   { id: 'opportunity', label: 'Opportunity', element: <OpportunityScene />, dwell: 11000 },
+  { id: 'market', label: 'Micro Market', element: <MarketGalleryScene />, dwell: 14000 },
   { id: 'pantry', label: 'Pantry', element: <PantryScene />, dwell: 14000 },
   { id: 'amenities', label: 'Amenities', element: <PillarScene spec={amenities} />, dwell: 10000 },
   { id: 'field', label: 'Field', element: <PillarScene spec={field} />, dwell: 10000 },
