@@ -55,7 +55,6 @@ function QrBlock() {
         />
       </div>
       <span className="kicker text-steel-300">Scan to add your favorites</span>
-      <span className="text-[9px] uppercase tracking-wider text-steel-500">sample · live code at deploy</span>
     </div>
   );
 }

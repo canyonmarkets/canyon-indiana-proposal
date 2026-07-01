@@ -404,7 +404,6 @@ function QrImage() {
         />
       </div>
       <span className="kicker text-steel-300">Scan to suggest</span>
-      <span className="text-[8px] uppercase tracking-wider text-steel-500">sample · live code at deploy</span>
     </div>
   );
 }
