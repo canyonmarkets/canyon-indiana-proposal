@@ -22,7 +22,7 @@ export default function EngageScene() {
           One system you <span className="text-ember-500">don&apos;t have to build.</span>
         </motion.h2>
         <motion.p variants={item} className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-steel-300">
-          You have a hyperscale campus to deliver on a clock. Feeding the thousands of people who build it shouldn&apos;t
+          You have an entire campus to deliver on a clock. Feeding the thousands of people who build it shouldn&apos;t
           be one more thing you design, staff, or chase. That&apos;s the one thing Canyon does — the pantries, the markets,
           the gym cooler, and the food-truck lane — end to end, on-site, on our own technology, at no cost to the build.
         </motion.p>

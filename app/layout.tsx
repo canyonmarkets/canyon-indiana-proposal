@@ -9,7 +9,7 @@ const spaceMono = Space_Mono({ variable: '--font-space-mono', weight: ['400', '7
 export const metadata: Metadata = {
   title: `${PROPOSAL.company} · ${PROPOSAL.lockup} — Microsoft EKI`,
   description:
-    'A turnkey, zero-cost on-site sustenance operation for the Microsoft EKI hyperscale data-center build in Elkhart / South Bend, Indiana.',
+    'A turnkey, zero-cost on-site sustenance operation for the Microsoft EKI data-center build in Elkhart / South Bend, Indiana.',
   robots: { index: false, follow: false },
 };
 

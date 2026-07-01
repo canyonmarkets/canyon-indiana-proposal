@@ -8,7 +8,7 @@ export const PROPOSAL = {
   lockup: 'Integrated Site Solutions',
   project: 'Microsoft EKI · Elkhart / South Bend, IN',
   thesis:
-    'On-site sustenance for the Elkhart hyperscale build — engineered in-house, zero-cost to the GC, with Canyon owners on the ground every day.',
+    'On-site sustenance for the Elkhart build — engineered in-house, zero-cost to the GC, with Canyon owners on the ground every day.',
 } as const;
 
 export const CONTACT = {
