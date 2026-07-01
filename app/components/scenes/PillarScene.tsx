@@ -33,7 +33,7 @@ export default function PillarScene({ spec }: { spec: PillarSpec }) {
         </motion.div>
 
         <div className="mt-4 flex items-start gap-5">
-          <motion.span variants={item} className="display hidden text-7xl font-bold leading-none text-charcoal-600 sm:block">
+          <motion.span variants={item} className="display hidden text-7xl font-bold leading-none text-charcoal-400 sm:block">
             {spec.num}
           </motion.span>
           <div>

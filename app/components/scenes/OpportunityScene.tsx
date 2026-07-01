@@ -31,7 +31,7 @@ export default function OpportunityScene() {
             <motion.div key={p.id} variants={item} className="panel panel-hover flex flex-col rounded-2xl p-5">
               <div className="flex items-center justify-between text-ember-400">
                 <span>{ICONS[p.id]}</span>
-                <span className="display text-2xl font-bold text-charcoal-500">{String(i + 1).padStart(2, '0')}</span>
+                <span className="display text-2xl font-bold text-charcoal-400">{String(i + 1).padStart(2, '0')}</span>
               </div>
               <h3 className="display mt-4 text-lg font-bold leading-tight text-steel-50">{p.name}</h3>
               <p className="mt-2.5 text-sm leading-relaxed text-steel-300">{p.oneLiner}</p>

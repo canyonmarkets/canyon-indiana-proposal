@@ -22,9 +22,14 @@ export default function PantryScene() {
               <p className="eyebrow text-ember-500">{spec.eyebrow}</p>
               <Tag tag={spec.tag} />
             </motion.div>
-            <motion.h2 variants={item} className="display mt-3 text-3xl font-bold leading-[1.05] text-steel-50 sm:text-4xl">
-              Your <span className="text-ember-500">Clayco</span> &amp; <span className="text-ember-500">Microsoft</span> staff grab and go. You see every item.
-            </motion.h2>
+            <div className="mt-3 flex items-start gap-4">
+              <motion.span variants={item} className="display hidden text-6xl font-bold leading-none text-charcoal-400 sm:block">
+                {spec.num}
+              </motion.span>
+              <motion.h2 variants={item} className="display text-3xl font-bold leading-[1.05] text-steel-50 sm:text-4xl">
+                Your <span className="text-ember-500">Clayco</span> &amp; <span className="text-ember-500">Microsoft</span> staff grab and go. You see every item.
+              </motion.h2>
+            </div>
             <motion.p variants={item} className="mt-4 max-w-xl text-base leading-relaxed text-steel-300">
               {spec.subhead}
             </motion.p>
