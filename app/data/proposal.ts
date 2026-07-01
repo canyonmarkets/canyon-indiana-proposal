@@ -67,8 +67,8 @@ export const ZONES: {
     tag: 'proposed',
     layout: '/img/layout-amenity-east.png',
     dots: [
-      { x: '57%', y: '62%', label: 'Dining micro-market', sub: 'Assembly / dining area', short: 'Dining', popup: '/img/market-crew.png' },
-      { x: '31%', y: '71%', label: 'AI gym cooler', sub: 'Inside the fitness center', short: 'Gym cooler', popup: '/img/cooler-ref.jpg' },
+      { x: '57%', y: '62%', label: 'Dining micro-market', sub: 'Assembly / dining area', short: 'Dining', popup: '/img/popout-dining.jpg' },
+      { x: '31%', y: '71%', label: 'AI gym cooler', sub: 'Inside the fitness center', short: 'Gym cooler', popup: '/img/popout-gym.jpg' },
     ],
   },
 ];
