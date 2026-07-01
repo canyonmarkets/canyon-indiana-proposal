@@ -48,7 +48,7 @@ export const ZONES: {
     deployment: 'Premium leadership pantry',
     tag: 'proposed',
     layout: '/img/layout-leadership.png',
-    dots: [{ x: '37%', y: '69%', label: 'Leadership pantry', sub: 'At the designated pantry room', short: 'Pantry', popup: '/img/planogram-birdseye.png' }],
+    dots: [{ x: '37%', y: '69%', label: 'Leadership pantry', sub: 'At the designated pantry room', short: 'Pantry', popup: '/img/popout-leadership.jpg' }],
   },
   {
     id: 'amenity-west',
