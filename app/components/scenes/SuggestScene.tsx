@@ -41,7 +41,7 @@ function QrPlaceholder({ size = 150 }: { size?: number }) {
 /** Real QR (/img/qr-suggestions.png) covers the placeholder once it exists. */
 function QrBlock() {
   return (
-    <div className="flex flex-none flex-col items-center gap-1.5">
+    <div className="flex flex-none flex-col items-center gap-2.5">
       <div className="relative h-[150px] w-[150px]">
         <QrPlaceholder size={150} />
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -54,7 +54,10 @@ function QrBlock() {
           className="absolute inset-0 h-[150px] w-[150px] rounded-lg border border-charcoal-600"
         />
       </div>
-      <span className="kicker text-steel-300">Scan to add your favorites</span>
+      <span className="flex items-center gap-1.5 rounded-full border border-live-500/40 bg-live-500/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-live-500">
+        <span className="livedot pulse" /> Live · scan it now
+      </span>
+      <span className="text-[11px] text-steel-400">Opens the real menu on your phone</span>
     </div>
   );
 }
@@ -87,6 +90,9 @@ export default function SuggestScene() {
         <motion.p variants={item} className="mt-3 max-w-2xl text-base leading-relaxed text-steel-300">
           Every worker and contractor scans one code, browses the full menu on their phone, and hearts what they want —
           so the shelves reflect what your people actually ask for, not a guess.
+        </motion.p>
+        <motion.p variants={item} className="mt-3 text-sm font-semibold text-ember-300">
+          Reviewing this on a screen? Point your phone camera at the code below — it&apos;s live right now, and it opens the real menu.
         </motion.p>
 
         <div className="mt-7 grid items-center gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
